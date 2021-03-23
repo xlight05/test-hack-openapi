@@ -1,0 +1,12 @@
+[2021-03-23 17:18:49,564] SEVERE {b7a.log.crash} - class io.ballerina.compiler.syntax.tree.ExplicitNewExpressionNode cannot be cast to class io.ballerina.compiler.syntax.tree.ImplicitNewExpressionNode (io.ballerina.compiler.syntax.tree.ExplicitNewExpressionNode and io.ballerina.compiler.syntax.tree.ImplicitNewExpressionNode are in unnamed module of loader 'app') 
+java.lang.ClassCastException: class io.ballerina.compiler.syntax.tree.ExplicitNewExpressionNode cannot be cast to class io.ballerina.compiler.syntax.tree.ImplicitNewExpressionNode (io.ballerina.compiler.syntax.tree.ExplicitNewExpressionNode and io.ballerina.compiler.syntax.tree.ImplicitNewExpressionNode are in unnamed module of loader 'app')
+	at org.ballerinalang.ballerina.service.OpenApiEndpointMapper.extractServer(OpenApiEndpointMapper.java:78)
+	at org.ballerinalang.ballerina.service.OpenApiEndpointMapper.convertListenerEndPointToOpenAPI(OpenApiEndpointMapper.java:67)
+	at org.ballerinalang.ballerina.OpenApiConverterUtils.getOpenApiDefinition(OpenApiConverterUtils.java:221)
+	at org.ballerinalang.ballerina.OpenApiConverterUtils.generateOAS3Definitions(OpenApiConverterUtils.java:199)
+	at org.ballerinalang.ballerina.OpenApiConverterUtils.generateOAS3DefinitionsAllService(OpenApiConverterUtils.java:157)
+	at org.ballerinalang.openapi.cmd.OpenApiCmd.ballerinaToOpenApi(OpenApiCmd.java:165)
+	at org.ballerinalang.openapi.cmd.OpenApiCmd.execute(OpenApiCmd.java:138)
+	at java.base/java.util.Optional.ifPresent(Optional.java:183)
+	at io.ballerina.cli.launcher.Main.main(Main.java:58)
+ 

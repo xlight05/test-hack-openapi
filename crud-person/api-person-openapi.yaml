@@ -1,0 +1,105 @@
+openapi: 3.0.1
+info:
+  title: ' api person'
+  version: 1.0.0
+servers:
+- url: localhost:9090/api/person
+paths:
+  /:
+    get:
+      operationId: operation3_get_/
+      responses:
+        "200":
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+    put:
+      operationId: operation3_put_/
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Person'
+      responses:
+        "200":
+          description: Successful
+          content:
+            application/json:
+              schema:
+                type: object
+    post:
+      operationId: operation3_post_/
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonInput'
+      responses:
+        "200":
+          description: Successful
+          content:
+            application/json:
+              schema:
+                type: object
+  /{id}:
+    get:
+      operationId: "operation2_get_/{id}"
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: Successful
+          content:
+            application/json:
+              schema:
+                type: object
+    delete:
+      operationId: "operation2_delete_/{id}"
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: Successful
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  schemas:
+    Person:
+      type: object
+      properties:
+        fname:
+          type: string
+        lname:
+          type: string
+        id:
+          type: integer
+          format: int32
+        age:
+          type: integer
+          format: int32
+    PersonInput:
+      type: object
+      properties:
+        fname:
+          type: string
+        lname:
+          type: string
+        age:
+          type: integer
+          format: int32
