@@ -1,0 +1,126 @@
+openapi: 3.0.1
+info:
+  title: ' api person'
+  version: 1.0.0
+servers:
+- url: localhost:9090/api/person
+paths:
+  /:
+    get:
+      operationId: operation3_get_/
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  type: object
+                type: array
+          description: Ok
+      x-accepts: application/json
+    post:
+      operationId: operation3_post_/
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonInput'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Successful
+      x-contentType: application/json
+      x-accepts: application/json
+    put:
+      operationId: operation3_put_/
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Person'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Successful
+      x-contentType: application/json
+      x-accepts: application/json
+  /{id}:
+    delete:
+      operationId: operation2_delete_/{id}
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Successful
+      x-accepts: application/json
+    get:
+      operationId: operation2_get_/{id}
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Successful
+      x-accepts: application/json
+components:
+  schemas:
+    Person:
+      example:
+        fname: fname
+        lname: lname
+        id: 0
+        age: 6
+      properties:
+        fname:
+          type: string
+        lname:
+          type: string
+        id:
+          format: int32
+          type: integer
+        age:
+          format: int32
+          type: integer
+      type: object
+    PersonInput:
+      example:
+        fname: fname
+        lname: lname
+        age: 0
+      properties:
+        fname:
+          type: string
+        lname:
+          type: string
+        age:
+          format: int32
+          type: integer
+      type: object
+
